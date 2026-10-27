@@ -26,7 +26,8 @@
 
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Swagger](https://img.shields.io/badge/OpenAPI_Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
 **Специализация:**
@@ -41,13 +42,13 @@
 
 ## 🚀 Проекты
 
-### [🥉 AI-ассистент по техдокументации — «AI-импульс 2.0»](https://github.com/il-mira7/ai-impulse-doc-assistant)
-Хакатон «AI-импульс 2.0», трек ПАО «Газпром нефть» — **3 место**. Ассистент отвечает на вопросы по 139
+### [🥉 AI-ассистент по техдокументации](https://github.com/il-mira7/ai-impulse-doc-assistant) — хакатон [«AI-импульс 2.0»](https://student.sber.ru/ai-impulse)
+Трек ПАО «Газпром нефть» — **3 место**. Ассистент отвечает на вопросы по 139
 руководствам (16 825 страниц, 17 отечественных продуктов) и показывает, откуда взят ответ — вплоть
 до страницы PDF. По сути: гибридный поиск, интерпретация омонимов и работа на российских моделях с офлайн-фолбэком.
 `Python` · `FastAPI` · `SQLite FTS5` · `RAG` · `LLM`
 
-### 🏭 Цифровой двойник сортировочного центра — хакатон RoboZon (Ozon)
+### 🏭 Цифровой двойник сортировочного центра — хакатон [Robozon](https://ozon-robozon.ru/) (Ozon)
 Симуляция сортировочного центра, переваривающего 100 000 товаров в час: дискретно-событийный движок на чистом Go, собственный WebSocket для стриминга тиков в 3D-двойник (React + Three.js),
 всё собирается в один бинарник. Моя роль — разложить задачу, руководить ИИ-агентом, который писал код,
 и принимать результат. Код команды не публиковался.
@@ -57,24 +58,27 @@
 Telegram-планировщик, в котором ИИ-агент — полноценный собеседник: «напомни купить корм, я обычно
 после работы» — и он сам создаст задачу (function calling), запомнит, что ты сова и магазины
 до 23:00, и не станет дёргать уведомлениями в тихие часы. Голосовые тоже понимает (Whisper).
+Код написан в паре с ИИ-агентом.
 `Go` · `SQLite` · `LLM` · `Whisper`
+
+### [🛒 ShopAPI](https://github.com/il-mira7/shop-api)
+Бэкенд магазина бытовой техники в три этапа: классический CRUD на Gin и PostgreSQL, публикация за Nginx —
+балансировка 2:1:1 на три инстанса, кэш, gzip, HTTPS — и отдельный gRPC-сервис авторизации со своей БД:
+JWT, bcrypt, middleware на каждый запрос. 23 эндпоинта под Swagger.
+Этот проект пишу руками.
+`Go` · `Gin` · `PostgreSQL` · `gRPC` · `JWT` · `Nginx`
 
 ### [❌⭕ go-tic-tac-toe](https://github.com/il-mira7/go-tic-tac-toe)
 Крестики-нолики, выросшие в настоящий сервис: сначала бот на минимаксе, потом партии на двоих
 через PostgreSQL, потом JWT с refresh-токенами, история партий и таблица лидеров. Слои разделены,
-зависимости собирает uber-fx, весь стек поднимается одной командой `make up`.
-`Go` · `gin` · `PostgreSQL` · `JWT` · `Docker` · `минимакс`
+зависимости собирает uber-fx, весь стек поднимается одной командой.
+`Go` · `Gin` · `PostgreSQL` · `JWT` · `Docker` · `минимакс`
 
 ### [🍕 SQL Bootcamp — School 21](https://github.com/il-mira7/sql-bootcamp)
 12 учебных проектов и 100 задач на PostgreSQL — от простых JOIN'ов до изоляции транзакций,
 индексов с `EXPLAIN ANALYZE`, триггеров, функций PL/pgSQL и рекурсивных CTE. У каждого проекта —
 свой README и схема БД.
 `PostgreSQL` · `SQL` · `PL/pgSQL` · `psql`
-
-### 🛒 ShopAPI — *скоро*
-REST-сервис магазина электроники: слои handler → service → repository, Gin, PostgreSQL на pgx/v5,
-DI на uber-fx, миграции, двухуровневая валидация, типизированные ошибки и Swagger. 19 эндпоинтов,
-5 сущностей. Этот проект пишу руками. Репозиторий — в подготовке к публикации.
 
 ### 🚗 Car Telemetry — *скоро*
 Телеметрия и диагностика автомобиля: собственный движок протокола ISO-TP поверх OBD-II/UDS,
